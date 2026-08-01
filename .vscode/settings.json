@@ -1,0 +1,8 @@
+{
+    "vim.leader": "<space>",
+    "vim.smartRelativeLine": true,
+    "vim.digraphs": {
+
+
+    }
+}
