@@ -24,7 +24,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: g++.exe x64 (Debug)"
+            "preLaunchTask": "C/C++: clang++ x64 (Debug)"
         },
         {
             "name": "C/C++: x64 build run",
@@ -50,7 +50,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: g++.exe x64 (Release)"
+            "preLaunchTask": "C/C++: clang++ x64 (Release)"
         }
     ]
 }
