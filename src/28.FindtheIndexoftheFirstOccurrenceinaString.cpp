@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <vector>
 using namespace std;
@@ -29,36 +30,35 @@ public:
         return -1;
     }
     int strStr(string haystack, string needle) {
-        int length1 = haystack.size();
-        int length2 = needle.size();
+        int length1 = haystack.size(), length2 = needle.size();
         if (length2 == 0) {
             return 0;
         }
         vector<int> next = getNext(needle);
         int j = 0;
-        for (int i = 0; i < length1; i++) {
+        for (int i{}; i < length1; ++i) {
             while (j > 0 && haystack[i] != needle[j]) {
                 j = next[j - 1];
             }
             if (haystack[i] == needle[j]) {
-                j++;
+                ++j;
             }
             if (j == length2) {
-                return i - length2 + 1;
+                return i - j + 1;
             }
         }
         return -1;
     }
-    vector<int> getNext(string pattern) {
-        int length = pattern.size();
-        int j = 0;
+    vector<int> getNext(const string& s) {
+        int length = s.size();
         vector<int> next(length, 0);
-        for (int i = 1; i < length; i++) {
-            while (j > 0 && pattern[i] != pattern[j]) {
+        int j = 0;
+        for (int i{1}; i < length; ++i) {
+            while (j > 0 && s[i] != s[j]) {
                 j = next[j - 1];
             }
-            if (pattern[i] == pattern[j]) {
-                j++;
+            if (s[i] == s[j]) {
+                ++j;
             }
             next[i] = j;
         }
@@ -68,7 +68,7 @@ public:
 
 int main() {
     Solution s;
-    string s1 = "abcabcabca";
+    string s1 = "wbcabcabca";
     string s2 = "abc";
     cout << s.strStr(s1, s2);
 }
