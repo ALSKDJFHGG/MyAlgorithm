@@ -1,6 +1,11 @@
 #include <iostream>
 
 int main() {
-    int num = -2e33;
-    std::cout << num << std::endl;
+    int ans{};
+    int num = 3;
+    while (num) {
+        ans += num % 2;
+        num = num >> 1;
+    }
+    std::cout << ans << "\n";
 }

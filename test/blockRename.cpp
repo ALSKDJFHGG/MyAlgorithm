@@ -41,11 +41,16 @@ public:
     }
 
     /**
-     * 不传参数默认末尾添加.cpp
+     * 不传参数时把末尾的.cpp替换为.exe，无.cpp后缀则直接添加.exe
      */
     void tailAdd() {
-        std::string tailCpp{ ".cpp" };
-        strs.append(tailCpp);
+        static const std::string cppSuffix{ ".cpp" };
+        if (strs.size() >= cppSuffix.size() &&
+            strs.compare(strs.size() - cppSuffix.size(), cppSuffix.size(), cppSuffix) == 0) {
+            strs.replace(strs.size() - cppSuffix.size(), cppSuffix.size(), ".exe");
+        } else {
+            strs.append(".exe");
+        }
     }
     /**
      * 末尾添加
@@ -60,10 +65,14 @@ public:
 
 };
 
-int main()
+int main(int argc, char** argv)
 {
     MyString mystring;
-    mystring.input();
+    std::string s;
+    for (int i{1}; i < argc; ++i) {
+        s.append(argv[i]);
+    }
+    mystring.input(s);
     mystring.tailAdd();
     mystring.output(mystring.missBlock());
     return 0;
