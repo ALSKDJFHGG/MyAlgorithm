@@ -47,9 +47,9 @@ public:
         static const std::string cppSuffix{ ".cpp" };
         if (strs.size() >= cppSuffix.size() &&
             strs.compare(strs.size() - cppSuffix.size(), cppSuffix.size(), cppSuffix) == 0) {
-            strs.replace(strs.size() - cppSuffix.size(), cppSuffix.size(), ".exe");
+            strs.replace(strs.size() - cppSuffix.size(), cppSuffix.size(), ".cpp");
         } else {
-            strs.append(".exe");
+            strs.append(".cpp");
         }
     }
     /**
