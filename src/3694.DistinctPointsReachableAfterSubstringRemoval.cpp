@@ -1,3 +1,4 @@
+#include <cassert>
 #include <cstddef>
 #include <string>
 #include <unordered_set>
@@ -37,3 +38,8 @@ public:
         return set.size();
     }
 };
+
+int main() {
+    Solution s;
+    assert(s.distinctPoints("LUL", 1) == 1);
+}

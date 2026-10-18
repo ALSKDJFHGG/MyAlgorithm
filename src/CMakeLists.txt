@@ -22,7 +22,7 @@ foreach(SRC_SOURCE IN LISTS SRC_SOURCES)
     foreach(CONFIG IN LISTS CMAKE_CONFIGURATION_TYPES)
         string(TOUPPER "${CONFIG}" CONFIG_UPPER)
         set_target_properties("${SRC_NAME}" PROPERTIES
-            "RUNTIME_OUTPUT_DIRECTORY_${CONFIG_UPPER}" "${HS_TEST_OUTPUT_DIRECTORY}"
+            "RUNTIME_OUTPUT_DIRECTORY_${CONFIG_UPPER}" "${SRC_OUTPUT_DIRECTORY}"
         )
         
     endforeach()
