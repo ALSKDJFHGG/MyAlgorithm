@@ -1,3 +1,5 @@
 bin
 build
 .cache
+!blockRename.exe
+rmcovert.cpp

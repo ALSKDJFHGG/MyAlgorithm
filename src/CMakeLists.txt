@@ -27,6 +27,6 @@ foreach(SRC_SOURCE IN LISTS SRC_SOURCES)
         
     endforeach()
     
-    add_test(NAME "${SRC_NAME}" COMMAND "${SRC_NAME}")
+    add_test(NAME "${SRC_NAME}" COMMAND $<TARGET_FILE:${SRC_NAME}>)
     
 endforeach()
